@@ -21,7 +21,7 @@ from __future__ import annotations
 
 from typing import Any
 
-import pdpyras
+import pagerduty
 
 from airflow.exceptions import AirflowException
 from airflow.hooks.base import BaseHook

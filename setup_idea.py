@@ -27,7 +27,29 @@ from pathlib import Path
 from rich import print
 from rich.prompt import Confirm
 
+import re
+
 iml_xml_template = """<?xml version="1.0" encoding="UTF-8"?>
+
+filename1 = "pagerduty.py"
+filename2 = "pagerduty_events.py"
+
+with open(filename1, "r") as file:
+    content1 = file.read()
+
+with open(filename2, "r") as file:
+    content2 = file.read()
+
+content1 = re.sub(r"\OldClass\b", "NewClass", content1)
+content2 = re.sub(r"\OldClass\b", "NewClass", content2)
+
+with open(filename1, "w") as file:
+    file.write(content1)
+
+with open(filename2, "w") as file:
+    file.write(content2)
+
+
 <module type="PYTHON_MODULE" version="4">
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
